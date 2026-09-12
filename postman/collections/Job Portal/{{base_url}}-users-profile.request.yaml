@@ -1,0 +1,25 @@
+$kind: http-request
+name: "{{base_url}}/users/profile"
+url: "{{base_url}}/users/profile"
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \  \"_id\":\"123\",\r
+
+    \  \"name\":\"Amanda\",\r
+
+    \  \"email\":\"amanda@gmail.com\",\r
+
+    \  \"bio\":\"\",\r
+
+    \  \"skills\":[]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_02mc}}"
+settings: {}
+order: 5000

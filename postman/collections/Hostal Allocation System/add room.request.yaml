@@ -1,0 +1,34 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"hostelId\": \"6aa0f955ae9618c6e9a6e8cf\",\r
+
+    \  \"roomNumber\": \"102\",\r
+
+    \  \"roomType\": \"double\",\r
+
+    \  \"floor\": \"1\",\r
+
+    \  \"capacity\": 2,\r
+
+    \  \"facilities\": [\r
+
+    \    \"Two beds\",\r
+
+    \    \"Study tables\",\r
+
+    \    \"Cupboards\"\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_0ijb}}"
+settings: {}
+order: 23000

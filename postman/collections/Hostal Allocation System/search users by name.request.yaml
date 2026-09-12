@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/users?search=Dilani"
+method: GET
+queryParams:
+  search: Dilani
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_0xxs}}"
+settings: {}
+order: 9000

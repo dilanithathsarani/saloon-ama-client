@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base url}}/api/user/toggle/68886dcfdcb7e30777cbbe5f"
+method: PUT
+body:
+  type: text
+  content: "\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_03ag}}"
+settings: {}
+order: 15000

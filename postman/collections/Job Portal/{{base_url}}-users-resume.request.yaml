@@ -1,0 +1,16 @@
+$kind: http-request
+name: "{{base_url}}/users/resume"
+url: "{{base_url}}/users/resume"
+method: POST
+body:
+  type: formdata
+  content:
+    - type: file
+      key: resume
+      src: /C:/Users/USER/Desktop/Academic English/Activity Sheet 1.pdf
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0jpf}}"
+settings: {}
+order: 9000

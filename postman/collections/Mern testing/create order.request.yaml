@@ -1,0 +1,58 @@
+$kind: http-request
+url: "{{base url}}/api/order"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"amanda@example.com\",\r
+
+    \  \"name\": \"Amanda Thathsarani\",\r
+
+    \  \"address\": \"123 Main Street, Colombo\",\r
+
+    \  \"status\": \"Pending\",\r
+
+    \  \"phoneNumber\": \"0771234567\",\r
+
+    \  \"billItem\": [\r
+
+    \    {\r
+
+    \      \"productId\": \"P001\",\r
+
+    \      \"productName\": \"Aloe Vera Face Wash\",\r
+
+    \      \"image\": \"https://example.com/images/product1.jpg\",\r
+
+    \      \"quantity\": 2,\r
+
+    \      \"price\": 1500\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"productId\": \"P002\",\r
+
+    \      \"productName\": \"Rose Water Toner\",\r
+
+    \      \"image\": \"https://example.com/images/product2.jpg\",\r
+
+    \      \"quantity\": 1,\r
+
+    \      \"price\": 1200\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"total\": 4200\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0wf3}}"
+settings: {}
+order: 8000

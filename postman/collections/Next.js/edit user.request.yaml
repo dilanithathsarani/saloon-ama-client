@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{Base_URL}}/api/users"
+method: GET
+body:
+  type: json
+  content: ""
+order: 3538187892365609

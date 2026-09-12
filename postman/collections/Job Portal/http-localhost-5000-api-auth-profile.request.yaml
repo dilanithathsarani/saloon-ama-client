@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:5000/api/auth/profile
+url: http://localhost:5000/api/auth/profile
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \  \"message\": \"No Token Found\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_04ae}}"
+settings: {}
+order: 6000

@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/applications/6aa1010eae9618c6e9a6e8d4/review"
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"status\": \"approved\",\r
+
+    \  \"adminNote\": \"Application approved. Room allocation is pending.\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_03r7}}"
+settings: {}
+order: 35000

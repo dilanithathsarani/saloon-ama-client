@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{base url}}/api/user/"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"ama@gmail.com\",\r
+
+    \    \"firstName\":\"Amannda\",\r
+
+    \    \"lastName\":\"Thathsarani\",\r
+
+    \    \"password\":\"abc\",\r
+
+    \    \"role\":\"user\"\r
+
+    }"
+settings: {}
+order: 5000

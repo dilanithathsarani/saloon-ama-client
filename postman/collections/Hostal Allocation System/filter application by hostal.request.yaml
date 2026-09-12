@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/applications/admin/all?hostelId=6aa0f955ae9618c6e9a6e8cf"
+method: GET
+queryParams:
+  hostelId: 6aa0f955ae9618c6e9a6e8cf
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_18em}}"
+settings: {}
+order: 34000

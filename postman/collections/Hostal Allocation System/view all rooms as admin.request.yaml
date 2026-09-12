@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms/admin/all"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0ijb}}"
+settings: {}
+order: 25000

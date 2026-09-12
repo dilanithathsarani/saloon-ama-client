@@ -1,0 +1,10 @@
+$kind: http-request
+name: "{{base_url}}/users/profile"
+url: "{{base_url}}/users/profile"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0g3v}}"
+settings: {}
+order: 7000

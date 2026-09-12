@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base url}}/api/user/6886087851f463160e9fedd3"
+method: DELETE
+body:
+  type: text
+  content: "\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_11fz}}"
+settings: {}
+order: 16000

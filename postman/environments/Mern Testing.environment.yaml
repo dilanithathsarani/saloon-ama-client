@@ -1,0 +1,32 @@
+name: Mern Testing
+color: null
+values:
+  - key: base url
+    value: localhost:5000
+    enabled: true
+  - key: admin token
+    value: ""
+    enabled: true
+    secret: true
+    sessionSource:
+      provider: postman
+      postman:
+        type: local
+        secretId: ccb0da21-fd95-4f79-b70b-5bdf87a75600
+        vaultId: local
+  - key: customer token
+    value: ""
+    enabled: true
+    secret: true
+    sessionSource:
+      provider: postman
+      postman:
+        type: local
+        secretId: 46c6c391-1247-41ac-b107-5286bd52b980
+        vaultId: local
+  - key: random_email
+    value: ""
+    enabled: true
+  - key: created_user_id
+    value: ""
+    enabled: true

@@ -1,0 +1,6 @@
+name: Job Portal
+color: null
+values:
+  - key: base_url
+    value: ""
+    enabled: true

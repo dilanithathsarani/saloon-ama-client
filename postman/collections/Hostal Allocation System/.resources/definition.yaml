@@ -1,0 +1,57 @@
+$kind: collection
+description: ""
+variables:
+  - key: supabase_service_role_api_key_13y7
+    secret: true
+  - key: json_web_token_13y7
+    secret: true
+  - key: json_web_token_0k4o
+    secret: true
+  - key: json_web_token_0ln2
+    secret: true
+  - key: auth_secret_0psy
+    secret: true
+  - key: supabase_service_role_api_key_0psy
+    secret: true
+  - key: supabase_service_role_api_key_0ocz
+    secret: true
+  - key: json_web_token_0psy
+    secret: true
+  - key: auth_secret_0xxs
+    secret: true
+  - key: auth_secret_1boj
+    secret: true
+  - key: supabase_service_role_api_key_0k6h
+    secret: true
+  - key: supabase_service_role_api_key_0gds
+    secret: true
+  - key: supabase_service_role_api_key_19ae
+    secret: true
+  - key: auth_secret_0xgv
+    secret: true
+  - key: auth_secret_08oj
+    secret: true
+  - key: supabase_service_role_api_key_0p0j
+    secret: true
+  - key: auth_secret_0ijb
+    secret: true
+  - key: supabase_service_role_api_key_0ijb
+    secret: true
+  - key: json_web_token_0ijb
+    secret: true
+  - key: json_web_token_0zyk
+    secret: true
+  - key: supabase_service_role_api_key_0ysj
+    secret: true
+  - key: auth_secret_1973
+    secret: true
+  - key: supabase_service_role_api_key_0gwf
+    secret: true
+  - key: auth_secret_18em
+    secret: true
+  - key: auth_secret_03r7
+    secret: true
+  - key: json_web_token_10xb
+    secret: true
+  - key: json_web_token_0553
+    secret: true

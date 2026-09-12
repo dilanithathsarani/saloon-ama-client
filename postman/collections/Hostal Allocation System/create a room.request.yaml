@@ -1,0 +1,38 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"hostelId\": \"6aa0f955ae9618c6e9a6e8cf\",\r
+
+    \  \"roomNumber\": \"101\",\r
+
+    \  \"roomType\": \"shared\",\r
+
+    \  \"floor\": \"1\",\r
+
+    \  \"capacity\": 4,\r
+
+    \  \"facilities\": [\r
+
+    \    \"Four beds\",\r
+
+    \    \"Study tables\",\r
+
+    \    \"Cupboards\",\r
+
+    \    \"Ceiling fan\"\r
+
+    \  ],\r
+
+    \  \"description\": \"Shared room for four students\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0p0j}}"
+settings: {}
+order: 22000

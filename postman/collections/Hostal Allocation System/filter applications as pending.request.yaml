@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/applications/admin/all?status=pending"
+method: GET
+queryParams:
+  status: pending
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_18em}}"
+settings: {}
+order: 33000

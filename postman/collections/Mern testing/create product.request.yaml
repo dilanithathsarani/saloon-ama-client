@@ -1,0 +1,30 @@
+$kind: http-request
+url: "{{base url}}/api/product"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"productId\": \"PROD001\",\r
+
+    \  \"name\": \"Hydrating Face Cream\",\r
+
+    \  \"price\": 25,\r
+
+    \  \"labeledPrice\": 30,\r
+
+    \  \"description\": \"Moisturizes and refreshes skin\",\r
+
+    \  \"images\": [\"url1\", \"url2\"],\r
+
+    \  \"stock\": 50,\r
+
+    \  \"category\": \"Skincare\"\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_1272}}"
+settings: {}
+order: 11000

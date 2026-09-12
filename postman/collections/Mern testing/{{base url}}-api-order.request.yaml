@@ -1,0 +1,43 @@
+$kind: http-request
+name: "{{base url}}/api/order"
+url: "{{base url}}/api/order"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Amanda Thathsarani\",\r
+
+    \  \"address\": \"123 Main Street, Colombo\",\r
+
+    \  \"status\": \"Pending\",\r
+
+    \  \"phoneNumber\": \"0771234567\",\r
+
+    \  \"billItem\": [\r
+
+    \    {\r
+
+    \      \"productId\": \"P001\",\r
+
+    \      \"productName\": \"Aloe Vera Face Wash\",\r
+
+    \      \"image\": \"https://example.com/images/product1.jpg\",\r
+
+    \      \"quantity\": 2,\r
+
+    \      \"price\": 1500\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"total\": 3000\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin token}}"
+settings: {}
+order: 9000

@@ -1,0 +1,12 @@
+$kind: http-request
+name: "{{base_url}}/jobs/search"
+url: "{{base_url}}/jobs/search?keyword=Frontend Developer"
+method: GET
+queryParams:
+  keyword: Frontend Developer
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_17kk}}"
+settings: {}
+order: 19000

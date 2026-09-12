@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms/6aa0fc5aae9618c6e9a6e8d1"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"status\": \"maintenance\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0zyk}}"
+settings: {}
+order: 28000

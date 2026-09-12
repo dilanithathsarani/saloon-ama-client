@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels?location=campus"
+method: GET
+queryParams:
+  location: campus
+auth:
+  type: noauth
+settings: {}
+order: 17000

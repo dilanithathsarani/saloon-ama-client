@@ -39,6 +39,7 @@ export async function POST(request : NextRequest){
         const secretText = process.env.JOSE_SECRET;
         const secret = new TextEncoder().encode(secretText);
         const token = await new jose.SignJWT({
+            id: user.id,
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,

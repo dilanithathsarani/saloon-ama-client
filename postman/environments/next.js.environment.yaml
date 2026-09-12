@@ -1,0 +1,6 @@
+name: next.js
+color: null
+values:
+  - key: Base_URL
+    value: ""
+    enabled: true

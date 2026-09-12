@@ -1,0 +1,42 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Sarasavi Women's Hostel\",\r
+
+    \  \"location\": \"Main University Campus\",\r
+
+    \  \"gender\": \"female\",\r
+
+    \  \"capacity\": 200,\r
+
+    \  \"description\": \"Accommodation facility for female undergraduate students.\",\r
+
+    \  \"facilities\": [\r
+
+    \    \"Wi-Fi\",\r
+
+    \    \"Study room\",\r
+
+    \    \"Cafeteria\",\r
+
+    \    \"Laundry\",\r
+
+    \    \"Security\"\r
+
+    \  ],\r
+
+    \  \"image\": \"https://example.com/hostel.jpg\",\r
+
+    \  \"status\": \"active\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0gds}}"
+settings: {}
+order: 13000

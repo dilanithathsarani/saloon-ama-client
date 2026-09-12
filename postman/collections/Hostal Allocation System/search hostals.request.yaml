@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels?search=Sarasavi"
+method: GET
+queryParams:
+  search: Sarasavi
+auth:
+  type: noauth
+settings: {}
+order: 15000

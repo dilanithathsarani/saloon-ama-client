@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base url}}/api/user/all"
+method: GET
+body:
+  type: text
+  content: "\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_10th}}"
+settings: {}
+order: 14000

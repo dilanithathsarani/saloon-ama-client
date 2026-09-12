@@ -1,0 +1,24 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/allocations"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"applicationId\": \"6aa1010eae9618c6e9a6e8d4\",\r
+
+    \  \"roomId\": \"6aa100f9ae9618c6e9a6e8d3\",\r
+
+    \  \"bedNumber\": 1,\r
+
+    \  \"startDate\": \"2026-10-01\",\r
+
+    \  \"endDate\": \"2027-09-30\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0553}}"
+settings: {}
+order: 36000

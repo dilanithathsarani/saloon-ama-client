@@ -1,0 +1,27 @@
+$kind: http-request
+name: http://localhost:5000/api/users/create
+url: "{{base_url}}/users/create"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Aawai\",\r
+
+    \  \"email\": \"amanda22@gmail.com\",\r
+
+    \  \"password\": \"123456444\",\r
+
+    \  \"role\": \"jobseeker\",\r
+
+    \  \"skills\": [\"Java\", \"React\", \"MySQL\"],\r
+
+    \  \"resume\": \"resume.pdf\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_11fz}}"
+settings: {}
+order: 1000

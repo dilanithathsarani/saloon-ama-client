@@ -1,0 +1,16 @@
+$kind: http-request
+name: "{{base_url}}/application/status/6a26601774aebb6f54226bf2"
+url: "{{base_url}}/application/status/6a26601774aebb6f54226bf2"
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+      "status": "Under Review"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0owe}}"
+settings: {}
+order: 17000

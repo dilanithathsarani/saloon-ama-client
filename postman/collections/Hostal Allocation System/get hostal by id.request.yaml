@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels/6aa0f955ae9618c6e9a6e8cf"
+method: GET
+auth:
+  type: noauth
+settings: {}
+order: 18000

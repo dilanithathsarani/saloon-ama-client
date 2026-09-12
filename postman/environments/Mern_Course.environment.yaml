@@ -1,0 +1,20 @@
+name: Mern_Course
+color: null
+values:
+  - key: base_url
+    value: localhost:5000
+    enabled: true
+  - key: admin_token
+    value: |
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpbGFuaTIwMDNAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiYWJzIiwibGFzdE5hbWUiOiJkZXMiLCJyb2xlIjoidXNlciIsInBob25lIjoiZmFsc2UiLCJpc0Rpc2FibGVkIjpmYWxzZSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaWF0IjoxNzQwOTM0MDgxfQ.w5F5-OKFXbu59Y39sHam5wKJ-pWT88gUeTUcRhDcr48
+    enabled: true
+  - key: customer_token
+    value: ""
+    enabled: true
+    secret: true
+    sessionSource:
+      provider: postman
+      postman:
+        type: local
+        secretId: 2bff8c40-3765-4a56-9cdc-02fe56512085
+        vaultId: local

@@ -1,0 +1,60 @@
+$kind: http-request
+url: "{{base url}}/api/order"
+method: GET
+body:
+  type: text
+  content: "{\r
+
+    \  \"email\": \"amanda@example.com\",\r
+
+    \  \"name\": \"Amanda Thathsarani\",\r
+
+    \  \"address\": \"123 Main Street, Colombo\",\r
+
+    \  \"status\": \"Pending\",\r
+
+    \  \"phoneNumber\": \"0771234567\",\r
+
+    \  \"billItem\": [\r
+
+    \    {\r
+
+    \      \"productId\": \"P001\",\r
+
+    \      \"productName\": \"Herbal Face Cream\",\r
+
+    \      \"image\": \"https://example.com/images/product1.jpg\",\r
+
+    \      \"quantity\": 2,\r
+
+    \      \"price\": 1400\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"productId\": \"P002\",\r
+
+    \      \"productName\": \"Aloe Vera Gel\",\r
+
+    \      \"image\": \"https://example.com/images/product2.jpg\",\r
+
+    \      \"quantity\": 1,\r
+
+    \      \"price\": 1000\r
+
+    \    }\r
+
+    \  ],\r
+
+    \  \"total\": 3800\r
+
+    }\r
+
+    \r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin token}}"
+settings: {}
+order: 6000

@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/users/6aa0f49bae9618c6e9a6e8cd/status"
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+      "isActive": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0k6h}}"
+settings: {}
+order: 12000

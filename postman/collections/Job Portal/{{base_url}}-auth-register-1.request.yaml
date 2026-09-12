@@ -1,0 +1,31 @@
+$kind: http-request
+name: "{{base_url}}/auth/register"
+url: "{{base_url}}/auth/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Admin User\",\r
+
+    \  \"email\": \"admin@jobportal.com\",\r
+
+    \  \"password\": \"Admin@123\",\r
+
+    \  \"role\": \"admin\",\r
+
+    \  \"bio\": \"Platform administrator.\",\r
+
+    \  \"education\": \"BSc in Computer Science\",\r
+
+    \  \"experience\": \"5 years in system administration\",\r
+
+    \  \"skills\": [\"Node.js\", \"MongoDB\", \"System Administration\"],\r
+
+    \  \"profilePicture\": \"https://example.com/admin-pic.jpg\",\r
+
+    \  \"resume\": \"https://example.com/admin-resume.pdf\"\r
+
+    }"
+settings: {}
+order: 3000

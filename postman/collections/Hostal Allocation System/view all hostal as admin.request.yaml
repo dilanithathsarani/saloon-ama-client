@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels/admin/all"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_0xgv}}"
+settings: {}
+order: 20000

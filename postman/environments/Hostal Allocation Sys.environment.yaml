@@ -1,0 +1,6 @@
+name: Hostal Allocation Sys
+color: null
+values:
+  - key: SYS_URL
+    value: ""
+    enabled: true

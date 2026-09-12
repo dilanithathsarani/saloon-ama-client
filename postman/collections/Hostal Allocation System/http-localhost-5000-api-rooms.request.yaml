@@ -1,0 +1,39 @@
+$kind: http-request
+name: http://localhost:5000/api/rooms
+url: http://localhost:5000/api/rooms
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"hostelId\": \"HOSTEL_ID\",\r
+
+    \  \"roomNumber\": \"101\",\r
+
+    \  \"roomType\": \"shared\",\r
+
+    \  \"floor\": \"1\",\r
+
+    \  \"capacity\": 4,\r
+
+    \  \"facilities\": [\r
+
+    \    \"Four beds\",\r
+
+    \    \"Study tables\",\r
+
+    \    \"Cupboards\",\r
+
+    \    \"Ceiling fan\"\r
+
+    \  ],\r
+
+    \  \"description\": \"Shared room for four students\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0k4o}}"
+settings: {}
+order: 5000

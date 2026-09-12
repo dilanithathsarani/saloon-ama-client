@@ -1,0 +1,10 @@
+$kind: http-request
+name: http://localhost:5000/api/auth/me
+url: http://localhost:5000/api/auth/me
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_13y7}}"
+settings: {}
+order: 4000

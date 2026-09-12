@@ -1,0 +1,34 @@
+$kind: http-request
+url: "{{base url}}/api/product"
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \  \"productId\": \"CB001\",\r
+
+    \  \"name\": \"Crystal Glow Face Cream\",\r
+
+    \  \"altNames\": [\"Glow Cream\", \"Hydrating Cream\",\"Cream\"],\r
+
+    \  \"price\": 2500,\r
+
+    \  \"labeledPrice\": 4000,\r
+
+    \  \"description\": \"A hydrating face cream that gives your skin a crystal-clear glow.\",\r
+
+    \  \"images\": [\r
+
+    \    \"https://images.unsplash.com/photo-1606813909227-06f94f71b8c0?q=80&w=2080\"\r
+
+    \  ],\r
+
+    \  \"stock\": 50\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0ej2}}"
+settings: {}
+order: 3000

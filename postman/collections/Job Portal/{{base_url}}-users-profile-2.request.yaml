@@ -1,0 +1,23 @@
+$kind: http-request
+name: "{{base_url}}/users/profile"
+url: "{{base_url}}/users/profile"
+method: PUT
+body:
+  type: text
+  content: "{\r
+
+    \  \"bio\":\"MERN Developer\",\r
+
+    \  \"education\":\"BSc Information Systems\",\r
+
+    \  \"experience\":\"Software Engineering Intern\",\r
+
+    \  \"skills\":[\"React\",\"Node.js\",\"MongoDB\"]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0jpf}}"
+settings: {}
+order: 8000

@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/applications/admin/all"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_18em}}"
+settings: {}
+order: 32000

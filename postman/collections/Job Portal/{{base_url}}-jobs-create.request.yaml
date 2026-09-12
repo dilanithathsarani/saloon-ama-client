@@ -1,0 +1,31 @@
+$kind: http-request
+name: "{{base_url}}/jobs/create"
+url: "{{base_url}}/jobs/create"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Backend Developer\",\r
+
+    \  \"description\": \"Seeking a Node.js developer to build scalable REST APIs and manage MongoDB databases\",\r
+
+    \  \"location\": \"Kandy\",\r
+
+    \  \"salary\": 175000,\r
+
+    \  \"jobType\": \"Full-time\",\r
+
+    \  \"experienceLevel\": \"Senior\",\r
+
+    \  \"skillsRequired\": [\"Node.js\", \"Express\", \"MongoDB\", \"JWT\"],\r
+
+    \  \"company\": \"6a244514df4f9cff16c4cade\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0qsx}}"
+settings: {}
+order: 12000

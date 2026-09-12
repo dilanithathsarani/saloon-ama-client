@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels?gender=female"
+method: GET
+queryParams:
+  gender: female
+auth:
+  type: noauth
+settings: {}
+order: 16000

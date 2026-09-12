@@ -1,0 +1,15 @@
+$kind: http-request
+name: "{{base_url}}/auth/login"
+url: "{{base_url}}/auth/login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"jane.smith@example.com\",\r
+
+    \  \"password\": \"SecurePass123!\"\r
+
+    }"
+settings: {}
+order: 4000

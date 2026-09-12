@@ -1,0 +1,10 @@
+$kind: http-request
+name: "{{base_url}}/application/apply/6a24445adf4f9cff16c4cadd"
+url: "{{base_url}}/application/apply/6a24445adf4f9cff16c4cadd"
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0z3h}}"
+settings: {}
+order: 15000

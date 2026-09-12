@@ -1,0 +1,35 @@
+$kind: http-request
+name: "{{base_url}}/auth/register"
+url: "{{base_url}}/auth/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Dilani Perera\",\r
+
+    \  \"email\": \"dilani.perera@gmail.com\",\r
+
+    \  \"password\": \"Test@1234\",\r
+
+    \  \"role\": \"jobseeker\",\r
+
+    \  \"bio\": \"Passionate frontend developer looking for new opportunities\",\r
+
+    \  \"education\": \"BSc in Computer Science, University of Colombo\",\r
+
+    \  \"experience\": \"2 years at ABC Tech as React Developer\",\r
+
+    \  \"skills\": [\"React\", \"JavaScript\", \"Tailwind CSS\", \"Node.js\"],\r
+
+    \  \"profilePicture\": \"https://example.com/profiles/dilani.jpg\",\r
+
+    \  \"resume\": \"https://example.com/resumes/dilani_cv.pdf\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_13nd}}"
+settings: {}
+order: 13000

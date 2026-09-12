@@ -1,0 +1,10 @@
+$kind: http-request
+name: "{{base_url}}/application/job/6a2650929c054e6b71591fbb"
+url: "{{base_url}}/application/job/6a2650929c054e6b71591fbb"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0juy}}"
+settings: {}
+order: 18000

@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms/6aa0fc5aae9618c6e9a6e8d1"
+method: DELETE
+body:
+  type: text
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0ysj}}"
+settings: {}
+order: 29000

@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels/6aa0fb66ae9618c6e9a6e8d0"
+method: DELETE
+auth:
+  type: bearer
+  credentials:
+    token: "{{auth_secret_08oj}}"
+settings: {}
+order: 21000

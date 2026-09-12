@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{base url}}/api/review"
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Test\",\r
+
+    \  \"rating\": 5,\r
+
+    \  \"comment\": \"Working\"\r
+
+    }\r
+
+    \r\n"
+auth:
+  type: bearer
+  credentials:
+    token: '"{{json_web_token_0f1j}}"'
+settings: {}
+order: 12000

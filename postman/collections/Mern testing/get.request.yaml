@@ -1,0 +1,18 @@
+$kind: http-request
+url: localhost:5000/api/user/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"customer@gmail.com\",\r
+
+    \    \"password\": \"123\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0ej2}}"
+settings: {}
+order: 1000

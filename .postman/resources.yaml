@@ -1,0 +1,22 @@
+workspace:
+  id: aa4a161c-5d1c-43b2-8198-bf6bb5099b2e
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/Hostal Allocation System: 41856200-8843d339-5c9f-4440-adfc-51dfa30fbccf
+    ../postman/collections/ArtisanHub: 41856200-47ff7724-7dd1-40f4-83ee-e795c3a2323a
+    ../postman/collections/Next.js: 41856200-43e7f85f-4236-4bdf-a85b-e5a608bb43af
+    ../postman/collections/Job Portal: 41856200-e91566fe-9bc3-4948-85d7-bd1a783dbe75
+    ../postman/collections/API Learning 101: 41856200-4781499a-1b87-44cc-a4e0-69ed3ba4843f
+    ../postman/collections/Mern testing: 41856200-eb687fc3-fc27-42b3-8348-e227940dc3d9
+    ../postman/collections/MERN: 41856200-97a086c0-5649-4d14-b281-59741f2cdc2a
+  environments:
+    ../postman/environments/Mern Testing.environment.yaml: 41856200-1d89980f-aeef-4012-bff3-f46435d8fa4d
+    ../postman/environments/next.js.environment.yaml: 41856200-9e8f0739-1cc7-43e2-bb72-646e3aab3081
+    ../postman/environments/Mern_Course.environment.yaml: 41856200-a7183e63-f821-466a-becd-e0d4849311f9
+    ../postman/environments/Hostal Allocation Sys.environment.yaml: 41856200-ab2f8960-7c41-4171-9c7d-94deff1d3842
+    ../postman/environments/Job Portal.environment.yaml: 41856200-c31f80e1-3ecc-4245-91f3-9d8edf2f8667
+  globals:
+    ../postman/globals/workspace.globals.yaml: 190605d0-09a6-4bda-8fc8-9be7cd35b1d5

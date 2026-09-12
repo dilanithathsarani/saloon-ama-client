@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/users?role=student"
+method: GET
+queryParams:
+  role: student
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0ocz}}"
+settings: {}
+order: 8000

@@ -1,0 +1,32 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/rooms/6aa0fc5aae9618c6e9a6e8d1"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"roomNumber\": \"A-101\",\r
+
+    \  \"capacity\": 5,\r
+
+    \  \"roomType\": \"shared\",\r
+
+    \  \"facilities\": [\r
+
+    \    \"Five beds\",\r
+
+    \    \"Study tables\",\r
+
+    \    \"Cupboards\",\r
+
+    \    \"Ceiling fan\"\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0ijb}}"
+settings: {}
+order: 27000

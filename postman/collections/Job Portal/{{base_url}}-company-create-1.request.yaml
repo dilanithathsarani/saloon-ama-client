@@ -1,0 +1,23 @@
+$kind: http-request
+name: "{{base_url}}/company/create"
+url: "{{base_url}}/company/create"
+method: POST
+body:
+  type: text
+  content: "{\r
+
+    \  \"name\":\"ABC Technologies\",\r
+
+    \  \"description\":\"Software Company\",\r
+
+    \  \"website\":\"https://abc.com\",\r
+
+    \  \"location\":\"Colombo\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_03ch}}"
+settings: {}
+order: 11000

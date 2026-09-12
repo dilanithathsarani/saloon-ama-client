@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{Base_URL}}/api/auth"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"admin@saloonama.lk\",\r
+
+    \  \"password\": \"123\"\r
+
+    }"
+settings: {}
+order: 1000

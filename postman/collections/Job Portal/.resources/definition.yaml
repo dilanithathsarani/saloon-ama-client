@@ -1,0 +1,42 @@
+$kind: collection
+description: ""
+variables:
+  - key: supabase_service_role_api_key_0gef
+    secret: true
+    disabled: false
+  - key: auth_secret_0gef
+    secret: true
+    disabled: false
+  - key: json_web_token_0gef
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_17kk
+    secret: true
+  - key: supabase_service_role_api_key_0juy
+    secret: true
+  - key: supabase_service_role_api_key_0owe
+    secret: true
+  - key: supabase_service_role_api_key_0h3i
+    secret: true
+  - key: supabase_service_role_api_key_0z3h
+    secret: true
+  - key: supabase_service_role_api_key_0uu9
+    secret: true
+  - key: supabase_service_role_api_key_13nd
+    secret: true
+  - key: supabase_service_role_api_key_0qsx
+    secret: true
+  - key: supabase_service_role_api_key_03ch
+    secret: true
+  - key: supabase_service_role_api_key_0o2q
+    secret: true
+  - key: supabase_service_role_api_key_0jpf
+    secret: true
+  - key: supabase_service_role_api_key_0g3v
+    secret: true
+  - key: supabase_service_role_api_key_04ae
+    secret: true
+  - key: supabase_service_role_api_key_02mc
+    secret: true
+  - key: supabase_service_role_api_key_11fz
+    secret: true

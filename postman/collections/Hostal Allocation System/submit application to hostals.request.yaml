@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/applications"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"hostelId\": \"6aa0f955ae9618c6e9a6e8cf\",\r
+
+    \    \"preferredRoomType\": \"shared\",\r
+
+    \    \"academicYear\": \"2026/2027\",\r
+
+    \    \"reason\": \"I require university accommodation because my home is far from the campus.\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_10xb}}"
+settings: {}
+order: 30000

@@ -1,0 +1,10 @@
+$kind: http-request
+name: "{{base_url}}/application/my-applications"
+url: "{{base_url}}/application/my-applications"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0h3i}}"
+settings: {}
+order: 16000

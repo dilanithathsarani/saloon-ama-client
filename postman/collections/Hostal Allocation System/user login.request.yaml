@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost:5000/api/auth/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"dilani@example.com\",\r
+
+    \  \"password\": \"Dilani@123\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_13y7}}"
+settings: {}
+order: 3000

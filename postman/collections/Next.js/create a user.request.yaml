@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{Base_URL}}/api/users"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\" : \"ama@gmail.com\",\r
+
+    \    \"firstName\" : \"Amanda\",\r
+
+    \    \"lastName\" : \"Thathsarani\",\r
+
+    \    \"password\" : \"2003\"\r
+
+    }"
+order: 3130332036465249

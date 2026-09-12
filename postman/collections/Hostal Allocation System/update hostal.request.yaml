@@ -1,0 +1,34 @@
+$kind: http-request
+url: "{{SYS_URL}}/api/hostels/6aa0f955ae9618c6e9a6e8cf"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"capacity\": 250,\r
+
+    \  \"description\": \"Updated hostel description\",\r
+
+    \  \"facilities\": [\r
+
+    \    \"Wi-Fi\",\r
+
+    \    \"Study room\",\r
+
+    \    \"Cafeteria\",\r
+
+    \    \"Laundry\",\r
+
+    \    \"Security\",\r
+
+    \    \"Medical room\"\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_19ae}}"
+settings: {}
+order: 19000

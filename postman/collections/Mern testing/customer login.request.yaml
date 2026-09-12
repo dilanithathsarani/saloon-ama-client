@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{base url}}/api/user/login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"amawi11@gmail.com\",\r
+
+    \    \"password\":\"abcd\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_11fz}}"
+settings: {}
+order: 6000
