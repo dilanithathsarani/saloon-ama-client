@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{Base_URL}}/api/users"
-method: GET
-settings: {}
-order: 2000

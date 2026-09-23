@@ -1,4 +1,0 @@
-$kind: collection
-description: Complete Postman collection for API Learning 101 - Learn RESTful APIs with hands-on examples
-variables:
-  base_url: https://api-learning.nisalgunawardhana.com

@@ -1,5 +1,0 @@
-$kind: http-request
-url: "{{base_url}}/api/reset"
-method: GET
-settings: {}
-order: 3000
