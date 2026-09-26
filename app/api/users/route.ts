@@ -4,7 +4,9 @@ import { getUser, isPrivileged } from "@/utils/authentication";
 import bcrypt from "bcryptjs";
 import type { UserRegistrationRequest } from "@/types/dto/UserRegistrationRequest"; 
 import { UserRegistrationRequestSchema } from "@/types/dto/UserRegistrationRequest";
-import { tr } from "zod/locales";
+import { z } from "zod";
+import { UserSelfUpdateRequestSchema } from "@/types/dto/UserSelfUpdateRequest";
+import { UserUpdateByAdminRequestSchema } from "@/types/dto/UserUpdateByAdminRequest";
 
 
 export async function GET(request: NextRequest) {
@@ -80,6 +82,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({message:"User created successfully"}, {status:201});
     }
     catch(error){
+        if(error instanceof z.ZodError){
+            
+            return NextResponse.json({message: error.issues[0]?.message?? "Invalid request body"}, {status:400});
+        }
         return NextResponse.json({message:"Error creating user", error:error}, {status:500});
     }
 }
@@ -93,9 +99,12 @@ export async function PUT(request: NextRequest) {
         return NextResponse.json({message:"Unauthorized"}, {status:401});
     }
 
-    const body = await request.json();
+    try{
+        const body = await request.json();
 
     if(requestUser.id == id){
+
+        UserSelfUpdateRequestSchema.parse(body);
 
         const user = await prisma.user.findUnique({
             where: {
@@ -129,6 +138,8 @@ export async function PUT(request: NextRequest) {
             return NextResponse.json({message:"You do not have the required privilege to access this resource."}, {status:403});
         }
 
+        UserUpdateByAdminRequestSchema.parse(body);
+        
         const user = await prisma.user.findUnique({
             where: {
                 id: id  || "0000"
@@ -157,4 +168,12 @@ export async function PUT(request: NextRequest) {
 
         return NextResponse.json({message:"User updated successfully"}, {status:200});
     }
+    }
+    catch(error){
+        if(error instanceof z.ZodError){
+            return NextResponse.json({message: error.issues[0]?.message?? "Invalid request body"}, {status:400});
+        }
+        return NextResponse.json({message:"Error updating user", error:error}, {status:500});
+    }
+    
 }
