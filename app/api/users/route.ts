@@ -2,6 +2,10 @@ import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { getUser, isPrivileged } from "@/utils/authentication";
 import bcrypt from "bcryptjs";
+import type { UserRegistrationRequest } from "@/types/dto/UserRegistrationRequest"; 
+import { UserRegistrationRequestSchema } from "@/types/dto/UserRegistrationRequest";
+import { tr } from "zod/locales";
+
 
 export async function GET(request: NextRequest) {
         const havePrivilege = await isPrivileged(request, "users : read")
@@ -48,11 +52,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
     const body = await request.json();
 
-    if(!body.email || !body.firstName || !body.lastName || !body.password){
-        return NextResponse.json({message:"Missing required fields"}, {status:400});
-    } 
     
-    const existingUser = await prisma.user.findUnique({
+    try{
+        const parsedBody = UserRegistrationRequestSchema.parse(body);
+
+        const existingUser = await prisma.user.findUnique({
         where: {
             email: body.email
         }
@@ -74,6 +78,10 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({message:"User created successfully"}, {status:201});
+    }
+    catch(error){
+        return NextResponse.json({message:"Error creating user", error:error}, {status:500});
+    }
 }
 
 export async function PUT(request: NextRequest) {
