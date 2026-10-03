@@ -15,7 +15,11 @@ export const ProductsCreationRequestSchema = z.object({
     brand : z.string().max(100).optional(),
     model: z.string().max(100).optional(),
     media: z.array(z.object({
-        url: z.url(),
+        url: z.url(),   
         type: MediaTypeEnum,
     })),
 });
+
+export type ProductsCreationRequest = z.infer<typeof ProductsCreationRequestSchema>;
+
+export default ProductsCreationRequestSchema
