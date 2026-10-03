@@ -237,6 +237,13 @@ export async function PUT(request : NextRequest){
             );
         }
 
+        if(existingProduct.status === ProductStatus.DELETED){
+            return NextResponse.json(
+                { message: "Product not found" },
+                { status: 400 }
+            );
+        }
+
         await prisma.product.update({
             where: {
                 id: id
