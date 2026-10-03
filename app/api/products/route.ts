@@ -201,7 +201,7 @@ export async function DELETE(request: NextRequest) {
 }
 
 export async function PUT(request : NextRequest){
-    const hasPrivilege = await isPrivileged(request, "products:update");
+    const hasPrivilege = await isPrivileged(request, "products:edit");
 
     if(!hasPrivilege){
         return NextResponse.json(
