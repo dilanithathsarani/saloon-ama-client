@@ -5,9 +5,32 @@ import { isPrivileged } from "@/utils/authentication";
 import ProductsCreationRequestSchema from "@/types/dto/ProductsCreationRequest";
 import prisma from "@/lib/prisma";
 import { da } from "zod/locales";
+import getPaginationInfo from "@/utils/pageInfoRetrieval";
 
 export async function GET(request: NextRequest) {
+    const params = getPaginationInfo(request);
 
+    const totalProducts = await prisma.product.count();
+    const totalPages = Math.ceil(totalProducts / params.pageSize);
+
+    const products = await prisma.product.findMany({
+        skip: (params.pageNumber - 1) * params.pageSize,
+        take: params.pageSize,
+        include: {
+            media: true,
+        },
+    });
+
+    return NextResponse.json({
+        message: "Products retrieved successfully",
+        products: products,
+        pagination: {
+            pageNumber: params.pageNumber,
+            pageSize: params.pageSize,
+            totalPages: totalPages,
+            totalCount: totalProducts,
+        },
+    });
 }
 
 export async function POST(request: NextRequest) {
