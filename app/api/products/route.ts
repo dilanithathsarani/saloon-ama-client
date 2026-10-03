@@ -12,7 +12,17 @@ import { ProductsUpdateRequestSchema } from "@/types/dto/ProductUpdateRequest";
 export async function GET(request: NextRequest) {
     const params = getPaginationInfo(request);
 
-    const totalProducts = await prisma.product.count();
+    const hasPrivilege = await isPrivileged(request, "products:read");
+
+    if(hasPrivilege){
+    const totalProducts = await prisma.product.count(
+        {
+        where: {
+            NOT: {
+                status: ProductStatus.DELETED
+            }  
+        }
+    });
     const totalPages = Math.ceil(totalProducts / params.pageSize);
 
     const products = await prisma.product.findMany({
@@ -21,6 +31,45 @@ export async function GET(request: NextRequest) {
         include: {
             media: true,
         },
+        where: {
+            NOT: {
+                status: ProductStatus.DELETED
+            }  
+        }
+    });
+
+    return NextResponse.json({
+        message: "Products retrieved successfully",
+        products: products,
+        pagination: {
+            pageNumber: params.pageNumber,
+            pageSize: params.pageSize,
+            totalPages: totalPages,
+            totalCount: totalProducts,
+        },
+    });
+}else{
+    const totalProducts = await prisma.product.count(
+        {
+        where: {
+            status: {
+                not: ProductStatus.ACTIVE
+            }
+        }
+    });
+    const totalPages = Math.ceil(totalProducts / params.pageSize);
+
+    const products = await prisma.product.findMany({
+        skip: (params.pageNumber - 1) * params.pageSize,
+        take: params.pageSize,
+        include: {
+            media: true,
+        },
+        where: {
+            status: {
+                not: ProductStatus.ACTIVE
+            }
+        }
     });
 
     return NextResponse.json({
