@@ -7,6 +7,7 @@ import { UserRegistrationRequestSchema } from "@/types/dto/UserRegistrationReque
 import { z } from "zod";
 import { UserSelfUpdateRequestSchema } from "@/types/dto/UserSelfUpdateRequest";
 import { UserUpdateByAdminRequestSchema } from "@/types/dto/UserUpdateByAdminRequest";
+import getPaginationInfo from "@/utils/pageInfoRetrieval";
 
 
 export async function GET(request: NextRequest) {
@@ -16,22 +17,18 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({message:"You do not have the required privilege to access this resource."}, {status:403});
         }
 
-        const pageNumberIntString = request.nextUrl.searchParams.get("pageNumber")|| "1";
-        const pageSizeIntString = request.nextUrl.searchParams.get("pageSize")|| "10";
-
-        const pageNumber = parseInt(pageNumberIntString)
-        const pageSize =parseInt(pageSizeIntString) 
+        const params = getPaginationInfo(request);
 
         const usersCount = await prisma.user.count(); 
-        const totalPages = Math.ceil(usersCount / pageSize);
+        const totalPages = Math.ceil(usersCount / params.pageSize);
 
-        if(pageNumber > totalPages){
+        if(params.pageNumber > totalPages){
             return NextResponse.json({message:"Page number exceeds total pages"}, {status:400});
         }
 
         const users = await prisma.user.findMany({
-            skip: (pageNumber - 1) * pageSize,
-            take: pageSize,
+            skip: (params.pageNumber - 1) * params.pageSize,
+            take: params.pageSize,
             select : {
                 id: true,
                 email: true,
