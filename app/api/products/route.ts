@@ -6,6 +6,7 @@ import ProductsCreationRequestSchema from "@/types/dto/ProductsCreationRequest";
 import prisma from "@/lib/prisma";
 import { da } from "zod/locales";
 import getPaginationInfo from "@/utils/pageInfoRetrieval";
+import { ProductStatus } from "@/app/generated/prisma/enums";
 
 export async function GET(request: NextRequest) {
     const params = getPaginationInfo(request);
@@ -90,4 +91,60 @@ export async function POST(request: NextRequest) {
       );
    }
 
+}
+
+export async function DELETE(request: NextRequest) {
+
+    const hasPrivilege = await isPrivileged(request, "products:delete");
+
+    if(!hasPrivilege){
+        return NextResponse.json(
+            { message: "You do not have the required privilege to delete a product" },
+            { status: 403 }
+        );
+    }
+
+    const id=request.nextUrl.searchParams.get("id");
+
+    if(id==null){
+        return NextResponse.json(
+            { message: "Product ID is required" },
+            { status: 400 }
+        );
+    }
+
+    try{
+        const existingProduct = await prisma.product.findUnique({
+        where: {
+            id: id
+        }
+    });
+
+    if(existingProduct==null){
+        return NextResponse.json(
+            { message: "Product not found" },
+            { status: 404 }
+        );
+    }
+
+    await prisma.product.update({
+        where: {
+            id: id
+        },
+        data: {
+            status: ProductStatus.DELETED
+        }
+    });
+
+    return NextResponse.json(
+        { message: "Product deleted successfully" },
+        { status: 200 }
+    );
+
+    }catch(error){
+        return NextResponse.json(
+            { message: "Internal server error" },
+            { status: 500 }
+        );
+    }
 }
