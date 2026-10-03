@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import * as jose from "jose";
 import { z } from "zod";
 import { isPrivileged } from "@/utils/authentication";
-import ProductsCreationRequestSchema from "@/types/dto/ProductsCreationRequest";
+import ProductsCreationRequestSchema, { MediaArraySchema } from "@/types/dto/ProductsCreationRequest";
 import prisma from "@/lib/prisma";
 import { da } from "zod/locales";
 import getPaginationInfo from "@/utils/pageInfoRetrieval";
 import { ProductStatus } from "@/app/generated/prisma/enums";
+import { ProductsUpdateRequestSchema } from "@/types/dto/ProductUpdateRequest";
 
 export async function GET(request: NextRequest) {
     const params = getPaginationInfo(request);
@@ -148,3 +149,98 @@ export async function DELETE(request: NextRequest) {
         );
     }
 }
+
+export async function PUT(request : NextRequest){
+    const hasPrivilege = await isPrivileged(request, "products:update");
+
+    if(!hasPrivilege){
+        return NextResponse.json(
+            { message: "You do not have the required privilege to edit a product" },
+            { status: 403 }
+        );
+    }
+
+    const id=request.nextUrl.searchParams.get("id");
+
+    if(id==null){
+        return NextResponse.json(
+            { message: "Product ID is required" },
+            { status: 400 }
+        );
+    }
+
+    try{
+        const body = await request.json();
+
+        const parsedBody = ProductsUpdateRequestSchema.parse(body)
+
+        const existingProduct = await prisma.product.findUnique({
+            where: {
+                id: id
+            }
+        });
+
+        if(existingProduct==null){
+            return NextResponse.json(
+                { message: "Product not found" },
+                { status: 404 }
+            );
+        }
+
+        await prisma.product.update({
+            where: {
+                id: id
+            },
+            data: {
+                sku: parsedBody.sku || existingProduct.sku,
+                name: parsedBody.name || existingProduct.name,
+                description: parsedBody.description || existingProduct.description,
+                altNames: parsedBody.altNames || existingProduct.altNames,
+                stock: parsedBody.stock || existingProduct.stock,
+                status: parsedBody.status || existingProduct.status,
+                price: parsedBody.price || existingProduct.price,
+                compareAt: parsedBody.compareAt || existingProduct.compareAt,
+                brand: parsedBody.brand || existingProduct.brand,
+                model: parsedBody.model || existingProduct.model,
+            }
+        });
+
+        if(parsedBody.media != null && parsedBody.media.length > 0){
+const parsedMediaArray = MediaArraySchema.parse(parsedBody.media);
+
+            await prisma.media.deleteMany({
+                where: {
+                    productId: id
+                }
+            });
+            await prisma.product.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    media: {
+                        create: parsedMediaArray
+                    }
+                }
+            });
+        }
+
+        return NextResponse.json(
+            { message: "Product updated successfully" },
+            { status: 200 }
+        );
+    }
+    catch(error){
+        if(error instanceof z.ZodError){
+            return NextResponse.json(
+                { message: error.issues[0]?.message?? "Invalid request body" },
+                { status: 400 }
+            );
+        }
+        return NextResponse.json(
+            { message: "Internal server error" },
+            { status: 500 }
+        );
+    }
+
+} 

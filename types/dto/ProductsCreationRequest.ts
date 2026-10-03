@@ -1,7 +1,13 @@
+import { MediaType, ProductStatus } from "@/app/generated/prisma/enums";
 import z from "zod";
 
-const ProductCreationEnum = z.enum(["ACTIVE", "INACTIVE", "DELETED"]);
-const MediaTypeEnum = z.enum(["IMAGE", "VIDEO"]);
+const ProductCreationEnum = z.enum(ProductStatus);
+const MediaTypeEnum = z.enum(MediaType);
+
+export const MediaArraySchema = z.array(z.object({
+    url: z.url(),
+    type: MediaTypeEnum,
+}));
 
 export const ProductsCreationRequestSchema = z.object({
     sku: z.string().max(50),
@@ -14,12 +20,10 @@ export const ProductsCreationRequestSchema = z.object({
     compareAt : z.number().min(0).optional(),
     brand : z.string().max(100).optional(),
     model: z.string().max(100).optional(),
-    media: z.array(z.object({
-        url: z.url(),   
-        type: MediaTypeEnum,
-    })),
+    media: MediaArraySchema,
 });
 
 export type ProductsCreationRequest = z.infer<typeof ProductsCreationRequestSchema>;
 
 export default ProductsCreationRequestSchema
+
